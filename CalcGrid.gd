@@ -128,9 +128,9 @@ func update_vectors(Fcommand,Gcommand,Hcommand):
 				#Vectors[i][j][k].rotate(Vector3(0,1,0), 3.14)
 				Vectors[i][j][k].transform.origin = Vector3(x,y,z)
 				
-				Vectors[i][j][k].scale.x = Vector3(Fxyz,Gxyz,Hxyz).length()
-				Vectors[i][j][k].scale.y = Vectors[i][j][k].scale.x 
-				Vectors[i][j][k].scale.z = Vectors[i][j][k].scale.x
+				Vectors[i][j][k].scale.z = Vector3(Fxyz,Gxyz,Hxyz).length()
+				#Vectors[i][j][k].scale.y = Vectors[i][j][k].scale.x 
+				#Vectors[i][j][k].scale.z = Vectors[i][j][k].scale.x
 		#else:
 			#Vectors[i][j][0].init(Vector3(x,y,z),+Vector3(0.1,0.1,0.1))
 		#	pass

@@ -9,17 +9,23 @@
 [ext_resource path="res://Rxyz.gd" type="Script" id=7]
 [ext_resource path="res://addons/orbit_camera/orbit_camera.gd" type="Script" id=8]
 [ext_resource path="res://waypoint.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Camera.gd" type="Script" id=10]
 
 [sub_resource type="SpatialMaterial" id=1]
 vertex_color_use_as_albedo = true
-
-[sub_resource type="SphereMesh" id=2]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
 
 [node name="OmniLight" type="OmniLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.83668, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0509386, 11.2308 )
+far = 250.0
+script = ExtResource( 10 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Camera"]
 
 [node name="OrbitCam" type="Spatial" parent="."]
 
@@ -29,12 +35,6 @@ script = ExtResource( 8 )
 ANCHOR_NODE_PATH = NodePath("..")
 
 [node name="DirectionalLight" type="DirectionalLight" parent="OrbitCam/OrbitCamera"]
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0509386, 11.2308 )
-far = 250.0
-
-[node name="DirectionalLight" type="DirectionalLight" parent="Camera"]
 
 [node name="Axes" type="ImmediateGeometry" parent="."]
 material_override = SubResource( 1 )
@@ -164,8 +164,3 @@ margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, 5 )
-mesh = SubResource( 2 )
-material/0 = null
